@@ -1,12 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bora<title>
+            <style>
+                #content>* {
+                    width: 600px;
+                    clear: both;
+                }
+
+                #results {
+                    min-height: 20px;
+                    border: 1px solid #ccc;
+                }
+            </style>
 </head>
+
 <body>
-    
+    <div id="content">
+        <textarea id="note-text"></textarea>
+        <button id="do-add-note">Add Note to Firestore / Algolia</button>
+        <br /><br />
+        <input type="text" id="query-text" placeholder="Search your notes..." />
+        <button id="do-query">Search</button>
+        <br />
+        <h3>Results</h3>
+        <pre id="results">
+
+                </pre>
+        <br />
+        <b>Make sure to follow setup steps in the
+            <a href="https://firebase.google.com/docs/firestore/solutions/search">documentation</a>
+        </b><br /><br />
+        <i>
+            Open your JavaScript console for helpful errors.
+            <br /><br />
+            Indexing can take several seconds and may require a page refresh for new<br />
+            notes to appear due to Algolia's search client caching results.
+        </i>
+    </div>
+
+    <!-- Import the Algolia SDK -->
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+    <script defer src="./init-firebase.js"></script>
+    <script src="./index.js"></script>
+
 </body>
+
 </html>
